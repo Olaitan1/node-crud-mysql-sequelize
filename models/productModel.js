@@ -1,12 +1,24 @@
 module.exports = (sequelize, DataTypes) => {
 
     const Product = sequelize.define("product", {
-        image: {
-            type: DataTypes.STRING
+        id:{
+            type: DataTypes.UUIDV4,
+            primaryKey: true,
+            allowNull: false,
+            unique: true
         },
-        title: {
+        mediaType: {
+            type: DataTypes.STRING,
+            enum: ['Audio', 'Image']
+        },
+        name: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        status:{
+            type: DataTypes.STRING,
+            enum: ['Active', 'Inactive']
+            
         },
         price: {
             type: DataTypes.INTEGER
@@ -16,6 +28,18 @@ module.exports = (sequelize, DataTypes) => {
         },
         published: {
             type: DataTypes.BOOLEAN
+        },
+        createdAt: {
+            type: DataTypes.DATE
+        },
+        updatedAt: {
+            type: DataTypes.DATE
+        },
+        url: {
+            type: DataTypes.STRING
+        },
+        deletedAt: {    
+            type: DataTypes.DATE
         }
     
     })

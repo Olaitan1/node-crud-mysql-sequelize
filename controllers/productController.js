@@ -1,4 +1,6 @@
 const db = require('../models')
+import { v4 as uuidv4 } from "uuid";
+
 
 // image Upload
 const multer = require('multer')
@@ -16,11 +18,17 @@ const Review = db.reviews
 const addProduct = async (req, res) => {
 
     let info = {
-        image: req.file.path,
+        id: uuidv4(),
+        status: req.body.status,
+        mediaType: req.file.path,
         title: req.body.title,
         price: req.body.price,
+        url: req.body.url,
         description: req.body.description,
-        published: req.body.published ? req.body.published : false
+        published: req.body.published ? req.body.published : false,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: new Date()
     }
 
     const product = await Product.create(info)
