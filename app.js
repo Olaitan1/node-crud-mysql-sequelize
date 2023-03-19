@@ -18,7 +18,7 @@ app.use('/api/products', router)
 
 //port
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8001
 
 //server
 
