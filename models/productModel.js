@@ -29,12 +29,6 @@ module.exports = (sequelize, DataTypes) => {
         published: {
             type: DataTypes.BOOLEAN
         },
-        createdAt: {
-            type: DataTypes.DATE
-        },
-        updatedAt: {
-            type: DataTypes.DATE
-        },
         url: {
             type: DataTypes.STRING
         },

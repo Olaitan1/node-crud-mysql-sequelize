@@ -1,5 +1,5 @@
 const db = require('../models')
-import { v4 as uuidv4 } from "uuid";
+const {uuidv4} = require  ("uuid");
 
 
 // image Upload
@@ -26,8 +26,6 @@ const addProduct = async (req, res) => {
         url: req.body.url,
         description: req.body.description,
         published: req.body.published ? req.body.published : false,
-        createdAt: new Date(),
-        updatedAt: new Date(),
         deletedAt: new Date()
     }
 
